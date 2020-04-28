@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ foo }}</p>
+        <!-- мы теперь не можем обновить `foo`! -->
+        <button v-on:click="foo = 'baz'">Изменить</button>
+    </div>
+
+    <div id="example">
+        <p>{{ message1 }}</p>
+        <input v-model="message2">
+        <p v-if="seen">Сейчас меня видно</p>
+    </div>
+
+    <div id="example3">
+        <p>Изначальное сообщение: «{{ message3 }}»</p>
+        <p>Сообщение задом наперёд: «{{ reversedMessage3 }}»</p>
+        <p>Еще сообщение задом наперёд: «{{ reverseMessage3() }}»</p>
+    </div>
+
+    <div id="example4">{{ fullName }}</div>
+
+    <div id="example5">{{ fullName }}</div>
+
+    <script src="index.js"></script>
+</body>
+</html>
