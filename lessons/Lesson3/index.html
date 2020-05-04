@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="example1" v-if="ok">
+        <div v-if="Math.random() > 0.5">
+            Сейчас меня видно
+        </div>
+        <div v-else>
+            А теперь — нет
+        </div>
+    </div>
+
+    <template id="no-key-example">
+        <div v-if="loginType === 'username'">
+            <label>Имя пользователя</label>
+            <input placeholder="Введите имя пользователя">
+            <button v-on:click="toggleLoginType">Переключить тип логина</button>
+        </div>
+        <div v-else>
+            <label>Email</label>
+            <input placeholder="Введите адрес email">
+            <button v-on:click="toggleLoginType">Переключить тип логина</button>
+        </div>
+    </template>
+
+    <h1 id="example2" v-show="ok">Привет!</h1>
+    
+    <script src="index.js"></script>
+</body>
+</html>
