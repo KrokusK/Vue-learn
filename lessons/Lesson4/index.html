@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <ul id="example-1">
+        <li v-for="item in items" :key="item.message">
+            {{ item.message }}
+        </li>
+    </ul>
+
+    <ul id="example-2">
+        <li v-for="(item, index) in items">
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+
+    <ul id="v-for-object" class="demo">
+        <li v-for="(value, name, index) in object">
+            {{ index }}. {{ name }}: {{ value }}
+        </li>
+    </ul>
+
+    <ul id="example-3">
+        <li v-for="n in evenNumbers">{{ n }}</li>
+    </ul>
+
+    <div id="example-4">
+        <ul v-for="set in sets">
+            <li v-for="n in even(set)">{{ n }}</li>
+        </ul>
+    </div>
+
+    <div  id="example-5">
+        <span v-for="n in 10">{{ n }} </span>
+    </div>
+
+    <ul id="example-6">
+        <template v-for="item in items">
+            <li>{{ item.message }}</li>
+            <li class="divider" role="presentation"></li>
+        </template>
+    </ul>
+
+    <ul id="example-7">
+        <li v-for="todo in todos" v-if="!todo.isComplete">
+            {{ todo.text }}
+        </li>
+    </ul>
+
+    <div id="todo-list-example">
+        <form v-on:submit.prevent="addNewTodo">
+            <label for="new-todo">Добавить задачу</label>
+            <input
+                    v-model="newTodoText"
+                    id="new-todo"
+                    placeholder="Например, покормить кота"
+            >
+            <button>Добавить</button>
+        </form>
+        <ul>
+            <li
+                    is="todo-item"
+                    v-for="(todo, index) in todos"
+                    v-bind:key="todo.id"
+                    v-bind:title="todo.title"
+                    v-on:remove="todos.splice(index, 1)"
+            ></li>
+        </ul>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
