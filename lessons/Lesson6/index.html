@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="example-1">
+        <input v-model="message" placeholder="отредактируй меня">
+        <p>Введённое сообщение: {{ message }}</p>
+    </div>
+
+    <div id="example-2">
+        <span>Введённое многострочное сообщение:</span>
+        <p style="white-space: pre-line;">{{ message }}</p>
+        <br>
+        <textarea v-model="message" placeholder="введите несколько строчек"></textarea>
+    </div>
+
+    <div id="example-3">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <div id="example-4">
+        <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
+        <label for="jack">Джек</label>
+        <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
+        <label for="john">Джон</label>
+        <input type="checkbox" id="mike" value="Майк" v-model="checkedNames">
+        <label for="mike">Майк</label>
+        <br>
+        <span>Отмеченные имена: {{ checkedNames }}</span>
+    </div>
+
+    <div id="example-5">
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Выбрано: {{ selected }}</span>
+    </div>
+
+    <div id="example-6">
+        <!-- синхронизируется по событию "change", а не "input" -->
+        <input v-model.lazy.trim="msg">
+        <p>Изменено сообщение: {{ msg }}</p>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

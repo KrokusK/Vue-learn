@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="example-1">
+        <button v-on:click="counter += 1">+1</button>
+        <p>Кнопка выше была нажата {{ counter }} раз</p>
+    </div>
+
+    <div id="example-2">
+        <!-- `greet` — это название метода, определённого ниже -->
+        <button v-on:click="greet">Поприветствовать</button>
+    </div>
+
+    <div id="example-3">
+        <button v-on:click="say('hi')">Скажи hi</button>
+        <button v-on:click="say('what')">Скажи what</button>
+    </div>
+
+    <div id="example-4">
+        <button v-on:click="warn('Форма не может быть отправлена.', $event)">
+            Отправить
+        </button>
+    </div>
+
+    <div id="example-5">
+        {{test}}
+        <input v-on:keyup.page-down="doSomething">
+        <button v-on:click.ctrl.exact="doSomething">Ctrl + Click</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
