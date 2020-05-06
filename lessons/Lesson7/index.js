@@ -39,14 +39,17 @@ new Vue({
 Vue.component('custom-input', {
     props: ['value'],
     template:
-        '<input' +
-          'v-bind:value="value"' +
-          'v-on:input="$emit(\'input\', $event.target.value)"' +
+        '<input ' +
+          'v-bind:value="value" ' +
+          'v-on:input="$emit(\'input\', $event.target.value)" ' +
         '>'
 })
 
 var example3 = new Vue({
-    el: '#example-3'
+    el: '#example-3',
+    data: {
+        searchText: 'test'
+    }
 })
 
 
