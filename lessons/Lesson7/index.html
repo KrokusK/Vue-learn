@@ -14,11 +14,18 @@
     </div>
 
     <div id="example-2">
-        <blog-post
-                v-for="post in posts"
-                v-bind:key="post.id"
-                v-bind:post="post"
-        ></blog-post>
+        <div :style="{ fontSize: postFontSize + 'em' }">
+            <blog-post
+                    v-for="post in posts"
+                    v-bind:key="post.id"
+                    v-bind:post="post"
+                    v-on:enlarge-text="postFontSize += $event"
+            ></blog-post>
+        </div>
+    </div>
+
+    <div id="example-3">
+        <custom-input v-model="searchText"></custom-input>
     </div>
 
     <script src="index.js"></script>
