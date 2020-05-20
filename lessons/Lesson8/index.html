@@ -17,6 +17,34 @@
         ></base-input>
     </div>
 
+    <div id="example-2">
+        <base-checkbox
+                v-model="lovingVue"
+        ></base-checkbox>
+    </div>
+
+    <div id="example-3">
+        <custom-input
+                v-model="searchText"
+        ></custom-input>
+    </div>
+
+    <div id="example-4">
+        <custom-checkbox-list
+                v-for="checkboxtemp in checkboxlist"
+                v-bind:idcomponent="checkboxtemp.id"
+                v-bind:valuecomponent="checkboxtemp.content"
+                v-model="lovingVue"
+        ></custom-checkbox-list>
+    </div>
+
+    <div id="example-5">
+        <base-input-event
+                v-on:focus="onFocus"
+                v-bind:label="label"
+        ></base-input-event>
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>
