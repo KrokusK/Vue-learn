@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="example-1">
+        <navigation-link url="/profile">
+            <!-- url не виден из слота в шаблоне, а в экземпляре в свойстве data url не определен! -->
+            Вы вошли как {{ user.name }} ({{ user.kind }}) {{ url }}
+        </navigation-link>
+    </div>
+
+    <div id="example-2">
+        <p>Содержимое слота по умолчанию - Отправить</p>
+        <submit-button>
+        </submit-button>
+
+        <p>Содержимое слота по умолчанию перезаписывается на Сохранить</p>
+        <submit-button>
+            Сохранить
+        </submit-button>
+    </div>
+
+    <div id="example-3">
+        <base-layout>
+            <template v-slot:header>
+                <h1>Здесь мог быть заголовок страницы</h1>
+            </template>
+
+            <p>Параграф для основного контента.</p>
+            <p>И ещё один.</p>
+
+            <template v-slot:footer>
+                <p>Некая контактная информация</p>
+            </template>
+        </base-layout>
+    </div>
+
+    <div id="example-4">
+        <current-user v-bind:usercomponent="userdata">
+            <template v-slot:default="slotProps">
+                {{ slotProps.userslot.firstName }}
+            </template>
+
+            <template v-slot:footer="footerSlotProps">
+                {{ footerSlotProps.userslotfooter.middleName }}
+            </template>
+        </current-user>
+    </div>
+
+    <div id="example-5">
+        <base-layout-reduction>
+            <template #header>
+                <h1>Здесь мог быть заголовок страницы</h1>
+            </template>
+
+            <p>Параграф для основного контента.</p>
+            <p>И ещё один.</p>
+
+            <template #footer>
+                <p>Некая контактная информация</p>
+            </template>
+        </base-layout-reduction>
+    </div>
+
+    <div id="example-6">
+        <todo-list v-bind:todoscomponent="todos">
+            <template v-slot:todoslot="{ todoSlotProps }">
+                <span v-if="todoSlotProps.isCompile">✓</span>
+                {{ todoSlotProps.text }}
+            </template>
+        </todo-list>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
