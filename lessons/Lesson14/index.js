@@ -16,3 +16,27 @@ var Component = Vue.extend({
 });
 
 var component = new Component(); // => "привет из примеси!"
+
+var mixin = {
+    data: function () {
+        return {
+            message: 'hello',
+            foo: 'abc'
+        }
+    }
+};
+
+new Vue({
+    mixins: [mixin],
+    data: function () {
+        return {
+            message: 'goodbye',
+            bar: 'def'
+        }
+    },
+    created: function () {
+        console.log(this.$data)
+        console.log(this.$data.message + ' ' +  this.$data.foo + ' ' + this.$data.bar)
+        // => { message: "goodbye", foo: "abc", bar: "def" }
+    }
+});
