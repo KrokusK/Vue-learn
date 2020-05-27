@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programmatic Event Listeners using Pikaday</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/color-js@1.0.3"></script>
+
+</head>
+<body>
+    <script type="text/x-template" id="anchored-heading-template">
+        <div>
+            <h1 v-if="level === 1">
+                <slot></slot>
+            </h1>
+            <h2 v-if="level === 2">
+                <slot></slot>
+            </h2>
+            <h3 v-if="level === 3">
+                <slot></slot>
+            </h3>
+            <h4 v-if="level === 4">
+                <slot></slot>
+            </h4>
+            <h5 v-if="level === 5">
+                <slot></slot>
+            </h5>
+            <h6 v-if="level === 6">
+                <slot></slot>
+            </h6>
+        </div>
+    </script>
+
+    <div id="example-1">
+        <anchored-heading :level="6">Привет, мир!</anchored-heading>
+    </div>
+
+    <div id="example-2">
+        <anchored-heading-render :level="4">Привет, мир!</anchored-heading-render>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

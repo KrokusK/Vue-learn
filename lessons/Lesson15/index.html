@@ -16,6 +16,26 @@
         <input v-model="searchText" v-focus>
     </div>
 
+    <div id="example-2">
+        <input v-model="searchText" v-focus-local>
+    </div>
+
+    <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
+
+    <div id="baseexample">
+        <p>Прокрутите страницу вниз</p>
+        <p v-pin="200">Элемент зафиксирован в 200px от начала страницы по горизонтали и вертикали</p>
+    </div>
+
+    <div id="dynamicexample">
+        <h3>Прокрутите страницу вниз</h3>
+        <p v-pin:[direction]="200">Элемент зафиксирован в 200px слева страницы.</p>
+    </div>
+
+    <div id="objectexample">
+        <div v-demo-object="{ color: 'белый', text: 'привет!' }"></div>
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>
