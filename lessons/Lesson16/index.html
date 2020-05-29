@@ -47,6 +47,23 @@
         <anchored-heading-render-get-children-text :level="3">%Hello !test! world!#</anchored-heading-render-get-children-text>
     </div>
 
+    <div id="example-4">
+        <paragraph-render></paragraph-render>
+    </div>
+
+    <div id="example-5">
+        <ul-render :items="list"></ul-render>
+    </div>
+
+    <div id="example-6">
+        <base-input
+                v-model="username"
+                required
+                placeholder="Введите имя пользователя"
+                label="Имя пользователя: "
+        ></base-input>
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>

@@ -70,3 +70,90 @@ Vue.component('anchored-heading-render-get-children-text', {
 new Vue({
     el: '#example-3'
 });
+
+Vue.component('paragraph-render', {
+    render: function (createElement) {
+        return createElement('div',
+            Array.apply(null, { length: 5 }).map(function () {
+                return createElement('p', 'Привет')
+            })
+        )
+    }
+});
+
+new Vue({
+    el: '#example-4'
+});
+
+Vue.component('ul-render', {
+    props: ['items'],
+    render: function (createElement) {
+        if (this.items.length) {
+            return createElement('ul', this.items.map(function (item) {
+                return createElement('li', item.name)
+            }))
+        } else {
+            return createElement('p', 'Ничего не найдено.')
+        }
+    }
+});
+
+new Vue({
+    el: '#example-5',
+    data: {
+        list: [
+            { name: 'Брюс Ли' },
+            { name: 'Джеки Чан' },
+            { name: 'Чак Норрис' },
+            { name: 'Джет Ли' },
+            { name: 'Кунг Фьюри' }
+        ]
+    }
+});
+
+Vue.component('base-input', {
+    inheritAttrs: false,
+    props: ['label', 'value'],
+    /*
+    render: function (createElement) {
+        var self = this
+        return createElement('input', {
+            domProps: {
+                value: self.value
+            },
+            on: {
+                input: function (event) {
+                    self.$emit('input', event.target.value)
+                }
+            }
+        })
+    }
+    */
+
+    render: function (createElement) {
+        var self = this;
+            inp = createElement('input', {
+                domProps: {
+                    value: self.value
+                },
+                on: {
+                    input: function (event) {
+                        self.$emit('input', event.target.value)
+                    }
+                }
+            });
+            lab = createElement('p', self.value);
+
+        //document.body.insertBefore(lab, inp);
+
+        return inp
+
+    }
+})
+
+new Vue({
+    el: '#example-6',
+    data: {
+        username: 'очисти содержимое'
+    }
+})
