@@ -132,7 +132,7 @@ Vue.component('base-input', {
 
     render: function (createElement) {
         var self = this;
-            inp = createElement('input', {
+            inputNode = createElement('input', {
                 domProps: {
                     value: self.value
                 },
@@ -142,18 +142,21 @@ Vue.component('base-input', {
                     }
                 }
             });
-            lab = createElement('p', self.value);
+            pNode = createElement('p', self.value);
+            stuff = [];
 
-        //document.body.insertBefore(lab, inp);
+        stuff.push(inputNode)
+        stuff.push(pNode)
 
-        return inp
+        divNode = createElement('div', stuff)
 
+        return divNode
     }
 })
 
 new Vue({
     el: '#example-6',
     data: {
-        username: 'очисти содержимое'
+        username: 'очистите содержимое'
     }
 })
