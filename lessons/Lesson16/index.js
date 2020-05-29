@@ -129,7 +129,6 @@ Vue.component('base-input', {
         })
     }
     */
-
     render: function (createElement) {
         var self = this;
             inputNode = createElement('input', {
