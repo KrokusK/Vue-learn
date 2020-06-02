@@ -141,7 +141,11 @@ Vue.component('base-input', {
                     }
                 }
             });
-            pNode = createElement('p', self.value);
+        pNode = createElement('p', {
+            domProps: {
+                innerHTML: self.value
+            }
+        });
             stuff = [];
 
         stuff.push(inputNode)
