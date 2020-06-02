@@ -53,10 +53,18 @@ Vue.component('base-input-render', {
             return value.charAt(0).toUpperCase() + value.slice(1)
         }
     },
+    methods: {
+        capitalizeMethod: function (value) {
+            if (!value) return ''
+            value = value.toString()
+            return value.charAt(0).toUpperCase() + value.slice(1)
+        }
+    },
     render: function (createElement) {
         var self = this;
             //htmlval = self.filters.capitalize(self.value);
             //htmlval = $options.filters.capitalize(self.value);
+            //htmlvalue = self.methods.capitalizeMethod(self.value);
             inputNode = createElement('input', {
                 domProps: {
                     value: self.value
