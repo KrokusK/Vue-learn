@@ -42,6 +42,7 @@ new Vue({
     }
 })
 
+// Doesn't work: value with filter capitalize
 Vue.component('base-input-render', {
     inheritAttrs: false,
     props: ['label', 'value'],
@@ -54,7 +55,8 @@ Vue.component('base-input-render', {
     },
     render: function (createElement) {
         var self = this;
-            //htmlval = self.filters.capitalize('fffff');
+            //htmlval = self.filters.capitalize(self.value);
+            //htmlval = $options.filters.capitalize(self.value);
             inputNode = createElement('input', {
                 domProps: {
                     value: self.value
@@ -66,7 +68,6 @@ Vue.component('base-input-render', {
                 }
             });
             pNode = createElement('p', {
-                //let html =  self.value;
                 domProps: {
                     //innerHTML: htmlval
                     innerHTML: self.value
@@ -88,6 +89,43 @@ new Vue({
     el: '#example-3',
     data: function () {
         return { username: 'печатайте здесь'}
+    }
+})
+
+function _linkify(text) {
+    return text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1">$1</a>');
+}
+
+Vue.filter('linkify', function (value) {
+    return _linkify(value)
+})
+
+Vue.component('linkify', {
+    props: ['msg'],
+    template: '<span v-html="linkifiedMsg"></span>',
+    computed: {
+        linkifiedMsg() { return _linkify(this.msg); }
+    }
+});
+
+Vue.component('linkify-slot', {
+    render: function (h) {
+        let html = _linkify(this.$slots.default[0].text);
+        return h('span',{domProps:{"innerHTML": html}})
+    }
+});
+
+new Vue({
+    el: '#example-4',
+    data: function () {
+        return {
+            message: 'The text string with a http://example.com'
+        }
+    },
+    methods: {
+        linkifyMethod(text) {
+            return _linkify(text); // simply delegating to the global function
+        }
     }
 })
 

@@ -34,6 +34,20 @@
         ></base-input-render>
     </div>
 
+    <div id="example-4">
+        <p>Doesn't work: {{ message | linkify }}</p>
+
+        <p v-html="$options.filters.linkify(message)"></p>
+
+        <p :inner-html.prop="message | linkify"></p>
+
+        <p v-html="linkifyMethod(message)"></p>
+
+        <p><linkify :msg="message"></linkify></p>
+
+        <p><linkify-slot>{{ message }}</linkify-slot></p>
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>
