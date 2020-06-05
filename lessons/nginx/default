@@ -5,7 +5,7 @@ map $http_origin $cors_header {
 
 server {
         listen       80;
-        server_name  212.107.253.70;
+        server_name  vue.test;
 
         add_header Access-Control-Allow-Origin $cors_header always;
 
@@ -14,7 +14,7 @@ server {
         add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With" always;
 
         location / {
-                root /var/www/html/edatomsk-laravel/public/;
+                root /var/www/html/Vue-learn/web/;
                 try_files $uri $uri/ /index.php$is_args$args;
                 index index.php  index.html index.htm;
                 proxy_send_timeout 300;
@@ -22,167 +22,7 @@ server {
         }
 
         location ~ \.php$ {
-                root /var/www/html/edatomsk-laravel/public/;
-                fastcgi_pass   unix:/run/php/php7.1-fpm.sock;
-                fastcgi_index  index.php;
-                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-                include        fastcgi_params;
-                fastcgi_read_timeout 300;
-        }
-
-        location ~ /\.ht {
-                deny  all;
-        }
-}
-
-server {
-        listen       82;
-        server_name  212.107.253.70;
-
-        add_header Access-Control-Allow-Origin $cors_header always;
-
-        add_header Access-Control-Allow-Methods "GET,PUT,PATCH,POST,DELETE,OPTIONS" always;
-        add_header Access-Control-Allow-Credentials "true" always;
-        add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With" always;
-
-        location / {
-                root /var/www/html/construction/backend/web/;
-                try_files $uri $uri/ /index.php$is_args$args;
-                index index.php  index.html index.htm;
-                proxy_send_timeout 300;
-                proxy_read_timeout 300;
-        }
-
-        location ~ \.php$ {
-                root /var/www/html/construction/backend/web/;
-                fastcgi_pass   unix:/run/php/php7.1-fpm.sock;
-                fastcgi_index  index.php;
-                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-                include        fastcgi_params;
-                fastcgi_read_timeout 300;
-        }
-
-        location ~ /\.ht {
-                deny  all;
-        }
-}
-
-server {
-        listen       84;
-        server_name  212.107.253.70;
-
-        add_header Access-Control-Allow-Origin $cors_header always;
-
-        add_header Access-Control-Allow-Methods "GET,PUT,PATCH,POST,DELETE,OPTIONS" always;
-        add_header Access-Control-Allow-Credentials "true" always;
-        add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With" always;
-
-        location / {
-                root /var/www/html/construction/api/web/;
-                try_files $uri $uri/ /index.php$is_args$args;
-                index index.php  index.html index.htm;
-                proxy_send_timeout 300;
-                proxy_read_timeout 300;
-        }
-
-        location ~ \.php$ {
-                root /var/www/html/construction/api/web/;
-                fastcgi_pass   unix:/run/php/php7.1-fpm.sock;
-                fastcgi_index  index.php;
-                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-                include        fastcgi_params;
-                fastcgi_read_timeout 300;
-        }
-
-        location ~ /\.ht {
-                deny  all;
-        }
-}
-
-server {
-        listen       80;
-        server_name  smart.test;
-
-        add_header Access-Control-Allow-Origin $cors_header always;
-
-        add_header Access-Control-Allow-Methods "GET,PUT,PATCH,POST,DELETE,OPTIONS" always;
-        add_header Access-Control-Allow-Credentials "true" always;
-        add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With" always;
-
-        location / {
-                root /var/www/html/construction/frontend/web/;
-                try_files $uri $uri/ /index.php$is_args$args;
-                index index.php  index.html index.htm;
-                proxy_send_timeout 300;
-                proxy_read_timeout 300;
-        }
-
-        location ~ \.php$ {
-                root /var/www/html/construction/frontend/web/;
-                fastcgi_pass   unix:/run/php/php7.1-fpm.sock;
-                fastcgi_index  index.php;
-                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-                include        fastcgi_params;
-                fastcgi_read_timeout 300;
-        }
-
-        location ~ /\.ht {
-                deny  all;
-        }
-}
-
-server {
-        listen       80;
-        server_name  admin.smart.test;
-
-        add_header Access-Control-Allow-Origin $cors_header always;
-
-        add_header Access-Control-Allow-Methods "GET,PUT,PATCH,POST,DELETE,OPTIONS" always;
-        add_header Access-Control-Allow-Credentials "true" always;
-        add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With" always;
-
-        location / {
-                root /var/www/html/construction/backend/web/;
-                try_files $uri $uri/ /index.php$is_args$args;
-                index index.php  index.html index.htm;
-                proxy_send_timeout 300;
-                proxy_read_timeout 300;
-        }
-
-        location ~ \.php$ {
-                root /var/www/html/construction/backend/web/;
-                fastcgi_pass   unix:/run/php/php7.1-fpm.sock;
-                fastcgi_index  index.php;
-                fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-                include        fastcgi_params;
-                fastcgi_read_timeout 300;
-        }
-
-        location ~ /\.ht {
-                deny  all;
-        }
-}
-
-server {
-        listen       80;
-        server_name  api.smart.test;
-
-        add_header Access-Control-Allow-Origin $cors_header always;
-
-        add_header Access-Control-Allow-Methods "GET,PUT,PATCH,POST,DELETE,OPTIONS" always;
-        add_header Access-Control-Allow-Credentials "true" always;
-        add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With" always;
-
-        location / {
-                root /var/www/html/construction/api/web/;
-                try_files $uri $uri/ /index.php$is_args$args;
-                index index.php  index.html index.htm;
-                proxy_send_timeout 300;
-                proxy_read_timeout 300;
-        }
-
-        location ~ \.php$ {
-                root /var/www/html/construction/api/web/;
+                root /var/www/html/Vue-learn/web/;
                 fastcgi_pass   unix:/run/php/php7.1-fpm.sock;
                 fastcgi_index  index.php;
                 fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
