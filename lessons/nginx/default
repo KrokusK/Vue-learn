@@ -11,7 +11,7 @@ server {
 
         add_header Access-Control-Allow-Methods "GET,PUT,PATCH,POST,DELETE,OPTIONS" always;
         add_header Access-Control-Allow-Credentials "true" always;
-        add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With" always;
+        add_header Access-Control-Allow-Headers "authorization,DNT,User-Agent,Keep-Alive,accept,origin,X-Requested-With" always;
 
         location / {
                 root /var/www/html/Vue-learn/web/;
